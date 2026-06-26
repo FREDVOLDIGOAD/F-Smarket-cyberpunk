@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoMarket - L'Avenir du Commerce</title>
+    <meta name="description" content="Découvrez l'avenir du e-commerce avec NeoMarket. Plateforme cyberpunk haute performance avec boutiques vendeurs de confiance.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- GLOBAL HEADER -->
+    <header class="cyber-glass">
+        <div class="logo-container" onclick="navigateTo('accueil')">
+            <div class="logo-icon"></div>
+            <div class="logo-text">NEOMARKET</div>
+        </div>
+
+        <ul class="nav-links">
+            <li id="nav-accueil" class="active"><a onclick="navigateTo('accueil')">Accueil</a></li>
+            <li id="nav-produits"><a onclick="navigateTo('produits')">Produits</a></li>
+            <li id="nav-support"><a onclick="navigateTo('support')">Support</a></li>
+        </ul>
+
+        <div class="header-search">
+            <input type="text" id="global-search-input" placeholder="Rechercher un produit..." onkeydown="handleSearchInput(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </div>
+
+        <div class="user-actions">
+            <!-- Messagerie -->
+            <div class="action-btn" onclick="navigateTo('messagerie')" title="Messagerie">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                <span class="badge-count" id="header-unread-msgs">2</span>
+            </div>
+
+            <!-- Favoris -->
+            <div class="action-btn" onclick="navigateTo('favoris')" title="Favoris">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <span class="badge-count" id="header-wishlist-count">0</span>
+            </div>
+
+            <!-- Panier -->
+            <div class="action-btn" onclick="navigateTo('panier')" title="Mon Panier">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span class="badge-count" id="header-cart-count">0</span>
+            </div>
+
+            <!-- Compte Client -->
+            <div class="action-btn" onclick="navigateTo('compte')" title="Mon Compte">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- SPA DYNAMIC VIEW CONTAINER -->
+    <main id="page-content">
+        <!-- Rendered by app.js -->
+    </main>
+
+    <!-- FLOATING DEVELOPER PAGE SWITCHER -->
+    <div id="dev-page-switcher" class="cyber-purple-glass">
+        <div class="dev-header" onclick="toggleDevPanel()">
+            <span class="dev-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                NEOMARKET PANELS (16)
+            </span>
+            <svg id="dev-toggle-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="dev-body" id="dev-panel-body">
+            <!-- JS will populate the 16 pages buttons here -->
+        </div>
+    </div>
+
+    <!-- GLOBAL FOOTER -->
+    <footer class="cyber-glass">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="glow-text-cyan">NEOMARKET</h3>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; margin-top: 10px;">
+                    La plateforme e-commerce du futur. Sécurité, rapidité et transparence grâce à notre réseau décentralisé de vendeurs agréés.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a onclick="navigateTo('accueil')">Accueil</a></li>
+                    <li><a onclick="navigateTo('produits')">Liste des Produits</a></li>
+                    <li><a onclick="navigateTo('boutique-vendeur')">À Propos de Nous</a></li>
+                    <li><a onclick="navigateTo('support')">Centre de Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Compte Client</h3>
+                <ul>
+                    <li><a onclick="navigateTo('compte')">Mon Profil</a></li>
+                    <li><a onclick="navigateTo('commandes')">Mes Commandes</a></li>
+                    <li><a onclick="navigateTo('suivi')">Suivi de Colis</a></li>
+                    <li><a onclick="navigateTo('favoris')">Liste de Souhaits</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 NeoMarket Inc. Tous droits réservés.</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- APP LOGIC -->
+    <script src="app.js"></script>
+</body>
+</html>
